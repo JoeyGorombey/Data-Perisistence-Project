@@ -24,5 +24,4 @@ public class DataManager : MonoBehaviour
     {
         return playername;
     }
-
 }
