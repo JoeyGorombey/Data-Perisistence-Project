@@ -11,17 +11,22 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text nameText;
     public GameObject GameOverText;
+    private DataManager dataManager = DataManager.dataManager;
     
     private bool m_Started = false;
     private int m_Points;
     
     private bool m_GameOver = false;
+   
+
 
     
     // Start is called before the first frame update
     void Start()
     {
+        DisplayName(dataManager.GetName());
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -62,6 +67,11 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    void DisplayName(string name)
+    {
+        nameText.text = $"Name: {name}";
+        
+    }
     void AddPoint(int point)
     {
         m_Points += point;
